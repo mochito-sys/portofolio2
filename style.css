@@ -1,0 +1,642 @@
+/* =============================================
+   1. Reset & Base Styles
+   ============================================= */
+:root {
+  --primary-color: #888888; /* Ganti biru ke abu-abu netral */
+  --secondary-color: #555555; /* Ganti biru tua ke abu tua */
+  --accent-color: #999999; /* Warna aksen jadi abu muda */
+  --text-color: #222222; /* Warna teks sedikit lebih gelap */
+  --light-text: #444444;
+  --bg-color: #f4f4f4; /* Latar belakang lembut abu muda */
+  --light-gray: #dddddd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  overflow-x: hidden;
+}
+
+blockquote {
+  font-family: "Georgia", serif;
+  font-size: 24px;
+  font-style: italic;
+  color: #333;
+  background-color: #f0f8ff; /* Light blue background */
+  border-left: 10px solid #007bff; /* Blue border */
+  padding: 20px;
+  margin: 40px 0;
+  text-align: center;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+blockquote::before {
+  content: "“";
+  font-size: 48px;
+  position: relative;
+  top: -10px;
+  color: #007bff;
+  margin-right: 10px;
+}
+
+blockquote::after {
+  content: "”";
+  font-size: 48px;
+  position: relative;
+  top: -10px;
+  color: #007bff;
+  margin-left: 10px;
+}
+
+blockquote cite {
+  display: inline-block;
+  font-size: 16px;
+  font-style: normal;
+  text-align: center;
+  margin-top: 20px;
+}
+/* =============================================
+     2. Typography
+     ============================================= */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  font-size: 2.2rem;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-color);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin: 2.5rem 0 1.5rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  color: var(--light-text);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* =============================================
+     3. Layout & Grid
+     ============================================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+main {
+  padding: 3rem 0;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+.content-box {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* =============================================
+     4. Header & Navigation
+     ============================================= */
+header {
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.pengaturan {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--light-gray);
+  margin-top: 1rem;
+}
+
+nav a {
+  margin: 0 1.5rem;
+  padding: 0.5rem 0;
+  font-weight: 500;
+  position: relative;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: var(--transition);
+}
+
+nav a:hover {
+  color: var(--primary-color);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* =============================================
+     5. Profile Elements
+     ============================================= */
+.profile-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  padding: 2rem;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.rosy {
+  margin-bottom: 2rem;
+}
+
+.rosy img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  animation: pulseGlow 2s infinite alternate;
+}
+
+.rosy img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.profile-intro p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* =============================================
+     6. Portfolio Section
+     ============================================= */
+#portofolio {
+  background-color: white;
+  padding: 4rem 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+#portofolio h2 {
+  margin-bottom: 3rem;
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+#portofolio h3 {
+  animation: fadeIn 1.4s ease-out forwards;
+}
+
+.portofolio_grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem auto;
+}
+
+.portofolio_grid .item {
+  width: 280px;
+  background-color: var(--bg-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: calc(var(--i, 0) * 0.2s);
+  opacity: 0;
+}
+
+.portofolio_grid .item:nth-child(1) {
+  --i: 1;
+}
+
+.portofolio_grid .item:nth-child(2) {
+  --i: 2;
+}
+
+.portofolio_grid .item:nth-child(3) {
+  --i: 3;
+}
+
+.portofolio_grid .item:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+}
+
+.portofolio_grid img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  transition: transform 0.5s ease;
+}
+
+.portofolio_grid .item:hover img {
+  transform: scale(1.05);
+}
+
+.portofolio_grid p {
+  padding: 1rem;
+  font-weight: 500;
+  margin: 0;
+  color: var(--text-color);
+}
+
+/* =============================================
+     7. Contact Page
+     ============================================= */
+/* Tambahkan CSS ini ke file style.css bagian Contact Page */
+
+/* =============================================
+   7. Contact Page - UPDATED FOR RESPONSIVENESS
+   ============================================= */
+.contact-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.contact-intro h2 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.contact-intro p {
+  font-size: 1.1rem;
+}
+
+.contact-form {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto 3rem;
+  padding: 2rem;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  animation: fadeInUp 1s ease-out forwards;
+  overflow: hidden; /* Prevent iframe overflow */
+}
+
+/* Responsive iframe container */
+.contact-form iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--light-gray);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(58, 110, 165, 0.1);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* =============================================
+   RESPONSIVE UPDATES FOR CONTACT PAGE
+   ============================================= */
+
+/* Tablet responsiveness */
+@media (max-width: 968px) {
+  .contact-form {
+    padding: 1.5rem;
+  }
+
+  .contact-form iframe {
+    height: 550px;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .contact-form {
+    padding: 1rem;
+    margin: 0 1rem 3rem;
+  }
+
+  .contact-form iframe {
+    height: 500px;
+  }
+
+  .profile-intro {
+    margin: 0 1rem 3rem;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .contact-form {
+    padding: 0.5rem;
+    margin: 0 0.5rem 3rem;
+  }
+
+  .contact-form iframe {
+    height: 450px;
+  }
+
+  .profile-intro {
+    margin: 0 0.5rem 3rem;
+    padding: 1rem;
+  }
+
+  .profile-intro h2 {
+    font-size: 1.5rem;
+  }
+
+  .profile-intro p {
+    font-size: 0.95rem;
+  }
+}
+
+/* =============================================
+     8. Buttons & Interactive Elements
+     ============================================= */
+.button,
+.contact-form button {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.8rem 1.8rem;
+  border-radius: 30px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin: 1rem 0 3rem;
+  box-shadow: 0 4px 12px rgba(58, 110, 165, 0.2);
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  animation: pulseButton 2s infinite alternate;
+}
+
+.button {
+  animation: fadeIn 1.6s ease-out forwards;
+}
+
+.button:hover,
+.contact-form button:hover {
+  background-color: var(--secondary-color);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 78, 152, 0.3);
+  animation: none;
+}
+
+/* =============================================
+     9. Animations & Effects
+     ============================================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  from {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  to {
+    box-shadow: 0 8px 25px rgba(58, 110, 165, 0.25);
+  }
+}
+
+@keyframes pulseButton {
+  from {
+    box-shadow: 0 4px 12px rgba(58, 110, 165, 0.2);
+  }
+  to {
+    box-shadow: 0 6px 18px rgba(58, 110, 165, 0.4);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* =============================================
+     10. Responsive Design
+     ============================================= */
+@media (max-width: 968px) {
+  #portofolio {
+    padding: 3rem 1.5rem;
+  }
+
+  .portofolio_grid {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  nav a {
+    margin: 0 1rem;
+    font-size: 0.9rem;
+  }
+
+  .profile-intro {
+    padding: 1.5rem;
+  }
+
+  .profile-intro p {
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .portofolio_grid .item {
+    width: 250px;
+  }
+
+  .portofolio_grid img {
+    height: 320px;
+  }
+
+  .contact-form {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 1rem 0;
+  }
+
+  nav a {
+    margin: 0 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  .rosy img {
+    width: 150px;
+    height: 150px;
+  }
+
+  #portofolio {
+    padding: 2rem 1rem;
+  }
+
+  .portofolio_grid .item {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .button,
+  .contact-form button {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .content-box,
+  .contact-form {
+    padding: 1.5rem 1rem;
+  }
+}
